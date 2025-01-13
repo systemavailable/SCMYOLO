@@ -1,2 +1,15 @@
 # SCMYOLO
-code
+The accurate and rapid identification of fish in natural underwater settings is crucial for the intelligent monitoring of fisheries. However, the computational requirements of intricate models necessitate advanced hardware capabilities, limiting the deployment of fish identification models within underwater monitoring systems. To address this, we introduce a lightweight fish object detection model named SCMYOLO. This model employs several innovations to reduce complexity and enhance performance. Firstly, we replace the yolov5 backbone network with MobileNetV3, significantly reducing network parameters and the computational load as measured by floating-point operations. Secondly, we integrate the High-level Screening-feature Fusion Pyramid(HS-FPN) structure with the Neck layer of yolov5, and combine the C3 module with the Context Guided Network(CGNetwork) module. This approach improves the extraction of low-level features and addresses challenges associated with multi-scale object detection, thereby enabling lightweight multi-scale feature extraction and fusion. Lastly, we incorporate the SIoU loss function to refine the accuracy of bounding box predictions. Our experimental findings demonstrate that the SCMYOLO model achieves an 88.4% reduction in model parameters and an 86.2% decrease in floating-point operations, with the size of the model file constituting just 14.6% of the original. Furthermore, the model sustains high performance metrics with precision, recall, and mAP@0.5 all exceeding 90%, indicating robust multi-scale detection capabilities. Given these attributes, SCMYOLO is particularly suited for deployment on various edge computing devices, offering an efficient solution for fish detection and identification in complex underwater environments.
+
+
+
+The train.py file contains the experimental parameter settings used in this study. The model/scmyolo.yaml file is the model file for this study. The data folder includes only a subset of the training and validation images used in our research and does not contain the label files. In the future, we plan to further supplement our custom fish-resource dataset.
+
+
+
+The main references involved in this study are described below.
+References:
+Howard, A., Sandler, M., Chu, G., Chen, L., Chen, B., Tan, M., Wang, W., Zhu, Y., Pang, R., Vasudevan, V., 2019. Searching for mobilenetv3., Proceedings of the IEEE/CVF international conference on computer vision, pp. 1314-1324.
+Chen, Y., Zhang, C., Chen, B., Huang, Y., Sun, Y., Wang, C., Fu, X., Dai, Y., Qin, F., Peng, Y., Gao, Y., 2024. Accurate leukocyte detection based on deformable-detr and multi-level feature fusion for aiding diagnosis of blood diseases. Comput. Biol. Med. 170, 107917.
+Gevorgyan, Z., 2022. Siou loss: more powerful learning for bounding box regression. Arxiv Preprint Arxiv:2205.12740.
+Wu, T., Tang, S., Zhang, R., Cao, J., Zhang, Y., 2020. Cgnet: a light-weight context guided network for semantic segmentation. Ieee Trans. Image Process. 30, 1169-1179.
